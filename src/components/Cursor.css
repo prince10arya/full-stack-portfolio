@@ -1,0 +1,22 @@
+.cursor-dot, .cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+}
+
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--primary);
+}
