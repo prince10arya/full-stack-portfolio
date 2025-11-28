@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import './About.css'
 
 export default function About() {
-  const [counts, setCounts] = useState({ projects: 0 })
+  const [counts, setCounts] = useState({ projects: 0, years: 0, clients: 0 })
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export default function About() {
   }, [])
 
   const animateCounters = () => {
-    const targets = { projects: 15 }
+    const targets = { projects: 15, years: 2, clients: 50 }
     const duration = 2000
     const steps = 60
     const increment = duration / steps
@@ -38,15 +37,23 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="about" ref={sectionRef}>
-      <div className="container">
-        <h2 className="section-title">About Me</h2>
-        <div className="about-card">
-          <p>Computer Science student at Lovely Professional University with expertise in full-stack development. Specialized in building scalable backend systems, AI-powered applications, and modern web solutions using React, Node.js, Python, and cloud technologies.</p>
-          <div className="stats">
-            <div className="stat-item">
-              <h3>{counts.projects}+</h3>
-              <p>Projects</p>
+    <section id="about" className="py-20 px-[5%]" ref={sectionRef}>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-5xl font-semibold text-center mb-12">About Me</h2>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-12">
+          <p className="text-xl text-gray-400 leading-relaxed mb-12">Computer Science student at Lovely Professional University with expertise in full-stack development. Specialized in building scalable backend systems, AI-powered applications, and modern web solutions using React, Node.js, Python, and cloud technologies.</p>
+          <div className="grid grid-cols-3 gap-12 text-center">
+            <div>
+              <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.projects}+</h3>
+              <p className="text-gray-400">Projects</p>
+            </div>
+            <div>
+              <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.years}+</h3>
+              <p className="text-gray-400">Years Exp</p>
+            </div>
+            <div>
+              <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.clients}+</h3>
+              <p className="text-gray-400">Happy Clients</p>
             </div>
           </div>
         </div>

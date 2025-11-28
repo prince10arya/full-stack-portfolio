@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import './Skills.css'
 
 const skills = [
   { icon: '🐍', name: 'Python', progress: 85 },
@@ -36,37 +35,17 @@ export default function Skills() {
     return () => observer.disconnect()
   }, [])
 
-  const handleMouseMove = (e, card) => {
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
-    const rotateX = (y - centerY) / 10
-    const rotateY = (centerX - x) / 10
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`
-  }
-
-  const handleMouseLeave = (card) => {
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'
-  }
-
   return (
-    <section id="skills" className="skills" ref={sectionRef}>
-      <div className="container">
-        <h2 className="section-title">Technical Skills</h2>
-        <div className="skills-grid">
+    <section id="skills" className="py-20 px-[5%]" ref={sectionRef}>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-5xl font-semibold text-center mb-12">Technical Skills</h2>
+        <div className="grid grid-cols-4 gap-6">
           {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="skill-card"
-              onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
-              onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
-            >
-              <div className="skill-icon">{skill.icon}</div>
-              <h3>{skill.name}</h3>
-              <div className="skill-bar">
-                <div className="skill-progress" data-progress={skill.progress}></div>
+            <div key={index} className="skill-card bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center hover:border-indigo-500 hover:-translate-y-1 transition-all">
+              <div className="text-5xl mb-4">{skill.icon}</div>
+              <h3 className="text-lg font-medium mb-4">{skill.name}</h3>
+              <div className="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+                <div className="skill-progress h-full bg-indigo-500 rounded-full transition-all duration-1000" data-progress={skill.progress} style={{ width: 0 }}></div>
               </div>
             </div>
           ))}
