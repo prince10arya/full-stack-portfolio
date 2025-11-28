@@ -47,14 +47,7 @@ export default function About() {
               <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.projects}+</h3>
               <p className="text-gray-400">Projects</p>
             </div>
-            <div>
-              <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.years}+</h3>
-              <p className="text-gray-400">Years Exp</p>
-            </div>
-            <div>
-              <h3 className="text-5xl text-indigo-500 font-semibold mb-2">{counts.clients}+</h3>
-              <p className="text-gray-400">Happy Clients</p>
-            </div>
+            
           </div>
         </div>
       </div>
